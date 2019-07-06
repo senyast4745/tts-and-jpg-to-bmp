@@ -3,6 +3,7 @@ package com.github.senyast4745.speaking;
 import com.github.senyast4745.speaking.image.ImageClass;
 import com.github.senyast4745.speaking.sound.ParseTxtClass;
 import com.github.senyast4745.speaking.sound.WavConverter;
+import com.github.senyast4745.speaking.util.NewLoadClass;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -75,12 +76,16 @@ public class MainFrame extends JPanel
            }
 
             JOptionPane.showMessageDialog(MainFrame.this,
-                    new String[]{"Файлы сгенерированны и лежат в директории", selectedPath},
+                    new String[]{"Файлы сгенерированны и наодятся в директории", selectedPath},
                     "Готово",
                     JOptionPane.INFORMATION_MESSAGE);
         });
         startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         container.add(startButton);
+        JButton helpButton = new JButton("Помощь");
+        helpButton.addActionListener(e ->showInfoWindow());
+        helpButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        container.add(helpButton);
     }
 
     private void showWarning(String text){
@@ -106,6 +111,17 @@ public class MainFrame extends JPanel
         else {
             log.info("No selection");
         }
+
+    }
+
+    private void showInfoWindow(){
+        NewLoadClass loadClass = new NewLoadClass();
+//        String [] message = loadClass.loadProperty("info").split("~");
+        String [] message = loadClass.getMessage().split("~");
+        JOptionPane.showMessageDialog(MainFrame.this,
+                message,
+                "Помощь",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 
     public static void main(String[] s) {
