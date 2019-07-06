@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id "edu.sc.seis.launch4j" version "2.4.6"
+}
+
+group 'com.github.senyast4745'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile 'org.apache.httpcomponents:httpclient:4.5.9'
+    compile group: 'org.imgscalr', name: 'imgscalr-lib', version: '4.2'
+    compile group: 'javazoom', name: 'jlayer', version: '1.0.1'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.github.senyast4745.speaking.MainClass'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
