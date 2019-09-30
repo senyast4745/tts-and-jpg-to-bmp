@@ -27,7 +27,7 @@ public class ImageClass {
     }
 
     private static BufferedImage scaleImage(BufferedImage startImage){
-        return Scalr.resize(startImage, 200);
+        return Scalr.resize(startImage, 160);
     }
 
     public static void mainImage() throws IOException {

@@ -23,7 +23,7 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'com.github.senyast4745.speaking.MainClass'
+        attributes 'Main-Class': 'com.github.senyast4745.speaking.MainFrame'
     }
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
